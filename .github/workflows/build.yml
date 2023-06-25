@@ -12,6 +12,7 @@ jobs:
         run: npm install -g pnpm
       - name: Install dependencies
         run: |
+          cd ../
           ls -al
           pnpm install
           sudo apt-get update
