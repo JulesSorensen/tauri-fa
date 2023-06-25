@@ -3,11 +3,19 @@ on:
   push:
     branches:
       - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: tauri-apps/tauri-action@v0
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build app
+        run: npm run build
+      - name: Create release
+        uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
