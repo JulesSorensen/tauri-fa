@@ -14,10 +14,10 @@ jobs:
         uses: actions/checkout@v2
       - name: Install dependencies
         run: |
-          ls -al
           pnpm install
           sudo apt-get update
           sudo apt-get install libgtk-3-dev
+          sudo apt-get install libsoup2.4-dev
       - name: Build app
         run: npm run build
       - name: Create release
