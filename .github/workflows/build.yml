@@ -10,9 +10,10 @@ jobs:
     steps:
       - name: Install pnpm
         run: npm install -g pnpm
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Install dependencies
         run: |
-          cd ../
           ls -al
           pnpm install
           sudo apt-get update
