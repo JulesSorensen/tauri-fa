@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { invoke } from '@tauri-apps/api';
+import { error } from 'tauri-plugin-log-api'
 
 defineProps<{
   msg: string,
@@ -13,6 +14,7 @@ async function hello() {
     name: 'World'
   });
   helloMessage.value = result.toString();
+  error("hello", result)
 }
 
 const count = ref(0)
